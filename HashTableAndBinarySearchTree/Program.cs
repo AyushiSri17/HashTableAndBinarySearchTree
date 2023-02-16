@@ -12,7 +12,7 @@ namespace HashTableAndBinarySearchTree
         {
             Console.WriteLine("Welcome to hash table programming");
 
-            Console.WriteLine("1. Frequency of word in a sentence \n2. Frequency of word in a paragraph");
+            Console.WriteLine("1. Frequency of word in a sentence \n2. Frequency of word in a paragraph \n3. Removal of word");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -24,6 +24,10 @@ namespace HashTableAndBinarySearchTree
                     string paragraph = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
                     CountNumbOfOccurence(paragraph);
                     break;
+                case 3:
+                    string text = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+                    CountNumbOfOccurence(text);
+                    break;
                 default:
                     Console.WriteLine("Please Enter the correct choice");
                     break;
@@ -32,18 +36,22 @@ namespace HashTableAndBinarySearchTree
         }
         public static void CountNumbOfOccurence(string paragraph)
         {
-            MyNode<string, int> hashTabe = new MyNode<string, int>(6);
+            MyNode<string, int> hashTable = new MyNode<string, int>(6);
             string[] words = paragraph.Split(' ');
 
             foreach (string word in words)
             {
-                if (hashTabe.Exists(word.ToUpper()))
-                    hashTabe.Add(word.ToUpper(), hashTabe.Get(word.ToUpper()) + 1);
+                if (hashTable.Exists(word.ToUpper()))
+                    hashTable.Add(word.ToUpper(), hashTable.Get(word.ToUpper()) + 1);
                 else
-                    hashTabe.Add(word.ToUpper(), 1); 
+                    hashTable.Add(word.ToUpper(), 1); 
             }
             Console.WriteLine(" Frequency of words in sentence");
-            hashTabe.Display();
+            hashTable.Display();
+            string w = "avoidable";
+            hashTable.Remove(w.ToUpper());
+            Console.WriteLine("After removed an item {0}", w);
+            hashTable.Display();
         }
     }
 }
