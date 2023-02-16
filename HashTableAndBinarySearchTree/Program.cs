@@ -12,13 +12,17 @@ namespace HashTableAndBinarySearchTree
         {
             Console.WriteLine("Welcome to hash table programming");
 
-            Console.WriteLine("1. Add Data");
+            Console.WriteLine("1. Frequency of word in a sentence \n2. Frequency of word in a paragraph");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
                 case 1:
                     string para = "To be or not to be";
                     CountNumbOfOccurence(para);
+                    break;
+                case 2:
+                    string paragraph = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+                    CountNumbOfOccurence(paragraph);
                     break;
                 default:
                     Console.WriteLine("Please Enter the correct choice");
