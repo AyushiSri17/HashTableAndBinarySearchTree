@@ -12,7 +12,7 @@ namespace HashTableAndBinarySearchTree
         {
             Console.WriteLine("Welcome to hash table programming");
 
-            Console.WriteLine("1. Frequency of word in a sentence \n2. Frequency of word in a paragraph \n3. Removal of word");
+            Console.WriteLine("1. Frequency of word in a sentence \n2. Frequency of word in a paragraph \n3. Removal of word \n4. Create Binary Tree");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -27,6 +27,13 @@ namespace HashTableAndBinarySearchTree
                 case 3:
                     string text = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
                     CountNumbOfOccurence(text);
+                    break;
+                case 4:
+                    BinarySearchTree binary = new BinarySearchTree();
+                    binary.Insert(56);
+                    binary.Insert(30);
+                    binary.Insert(70);
+                    binary.Display(binary.root);//30 56 70
                     break;
                 default:
                     Console.WriteLine("Please Enter the correct choice");
