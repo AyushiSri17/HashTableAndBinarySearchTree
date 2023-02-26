@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySearchTree.cs" />
+    <Compile Include="BinarySearchTreeUsingGenerics.cs" />
     <Compile Include="MyNode.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
