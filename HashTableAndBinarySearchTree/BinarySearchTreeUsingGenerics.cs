@@ -18,12 +18,13 @@ namespace HashTableAndBinarySearchTree
             RightTree = null;
         }
         public int leftCount = 0, rightCount = 0;
+        public int noOfNodes;
         public bool result = false;
         //INSERTION
         public void Insert(T item)
         {
             T currentNodeValue = NodeData;
-            if ((currentNodeValue.CompareTo(item)) > 0)
+            if ((currentNodeValue.CompareTo(item)) > 0)//root>child
             {
                 if (LeftTree == null)
                 {
@@ -35,7 +36,6 @@ namespace HashTableAndBinarySearchTree
                     LeftTree.Insert(item);
                     leftCount++;
                 }
-               // Console.WriteLine(leftCount);
             }
             else
             {
@@ -54,7 +54,7 @@ namespace HashTableAndBinarySearchTree
         
         public void GetSize()
         {
-            int noOfNodes=leftCount+rightCount+1;
+            noOfNodes=leftCount+rightCount+1;
             Console.WriteLine("Number of element in BST is " + noOfNodes);
         }
 
@@ -65,6 +65,28 @@ namespace HashTableAndBinarySearchTree
             Console.WriteLine(NodeData);
             if (RightTree != null)            
                 RightTree.Display();
+        }
+        public void Search(T element, BinarySearchTreeUsingGenerics<T> node)
+        {
+            if (node == null)
+            {
+                Console.WriteLine("Element not found");
+            }
+            else
+            {
+                    if (node.NodeData.Equals(element))
+                    {
+                        Console.WriteLine("{0} in found in Tree:  " + node.NodeData);
+                    }
+                    else if (element.CompareTo(node.NodeData) < 0)
+                    {
+                        Search(element, node.LeftTree);
+                    }
+                    else if (element.CompareTo(node.NodeData) > 0)
+                    {
+                        Search(element, node.RightTree);
+                    }
+            }
         }
 
     }

@@ -13,7 +13,7 @@ namespace HashTableAndBinarySearchTree
             Console.WriteLine("Welcome to hash table programming");
 
             Console.WriteLine("1. Frequency of word in a sentence \n2. Frequency of word in a paragraph \n3. Removal of word " +
-                "\n4. Create Binary Tree \n5. BST according to diagram");
+                "\n4. Create Binary Tree \n5. BST according to diagram \n6. Search element in BST");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -52,6 +52,21 @@ namespace HashTableAndBinarySearchTree
                     binaryG.Insert(67);
                     binaryG.Display();//3 11 16 22 33 40 56 60 63 65 67 70 95
                     binaryG.GetSize();
+                    break;
+                case 6:
+                    BinarySearchTreeUsingGenerics<int> binaryS = new BinarySearchTreeUsingGenerics<int>(56);
+                    binaryS.Insert(33);
+                    binaryS.Insert(70);
+                    binaryS.Insert(22);
+                    binaryS.Insert(40);
+                    binaryS.Insert(60);
+                    binaryS.Insert(95);
+                    binaryS.Insert(11);
+                    binaryS.Insert(3);
+                    binaryS.Display();
+                    Console.Write("Enter the element which you want to search: ");
+                    int element = Convert.ToInt32(Console.ReadLine());
+                    binaryS.Search(element, binaryS);
                     break;
                 default:
                     Console.WriteLine("Please Enter the correct choice");
